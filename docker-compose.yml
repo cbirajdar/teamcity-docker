@@ -1,0 +1,6 @@
+teamcity-master:
+    image: cbirajdar/teamcity-master
+    container_name: teamcity-master
+    hostname: teamcity-master
+    ports:
+      - "8111:8111"
