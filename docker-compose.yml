@@ -4,3 +4,23 @@ teamcity-master:
     hostname: teamcity-master
     ports:
       - "8111:8111"
+teamcity-agent1:
+    image: cbirajdar/teamcity-agent
+    container_name: teamcity-agent1
+    hostname: teamcity-agent1
+    ports:
+      - "9090:9090"
+    environment:
+      - AGENT_NAME=teamcity-agent1
+      - TEAMCITY_SERVER_URL=http://192.168.99.100:8111
+      - OWN_PORT=9090
+teamcity-agent2:
+    image: cbirajdar/teamcity-agent
+    container_name: teamcity-agent2
+    hostname: teamcity-agent2
+    ports:
+      - "9091:9091"
+    environment:
+      - AGENT_NAME=teamcity-agent2
+      - TEAMCITY_SERVER_URL=http://192.168.99.100:8111/
+      - OWN_PORT=9091
