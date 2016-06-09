@@ -1,7 +1,7 @@
-teamcity-master:
-    image: cbirajdar/teamcity-master
-    container_name: teamcity-master
-    hostname: teamcity-master
+teamcity-server:
+    image: cbirajdar/teamcity-server
+    container_name: teamcity-server
+    hostname: teamcity-server
     ports:
       - "8111:8111"
 teamcity-agent1:
@@ -9,34 +9,34 @@ teamcity-agent1:
     container_name: teamcity-agent1
     hostname: teamcity-agent1
     links:
-      - teamcity-master
+      - teamcity-server
     ports:
       - "9090:9090"
     environment:
       - TEAMCITY_AGENT_NAME=teamcity-agent1
-      - TEAMCITY_SERVER_HOST=teamcity-master
+      - TEAMCITY_SERVER_HOST=teamcity-server
       - TEAMCITY_AGENT_OWN_PORT=9090
 teamcity-agent2:
     image: cbirajdar/teamcity-agent
     container_name: teamcity-agent2
     hostname: teamcity-agent2
     links:
-      - teamcity-master
+      - teamcity-server
     ports:
       - "9091:9091"
     environment:
       - TEAMCITY_AGENT_NAME=teamcity-agent2
-      - TEAMCITY_SERVER_HOST=teamcity-master
+      - TEAMCITY_SERVER_HOST=teamcity-server
       - TEAMCITY_AGENT_OWN_PORT=9091
 teamcity-agent3:
     image: cbirajdar/teamcity-agent
     container_name: teamcity-agent3
     hostname: teamcity-agent3
     links:
-      - teamcity-master
+      - teamcity-server
     ports:
       - "9092:9092"
     environment:
       - TEAMCITY_AGENT_NAME=teamcity-agent3
-      - TEAMCITY_SERVER_HOST=teamcity-master
+      - TEAMCITY_SERVER_HOST=teamcity-server
       - TEAMCITY_AGENT_OWN_PORT=9092
