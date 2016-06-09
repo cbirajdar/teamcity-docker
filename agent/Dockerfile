@@ -9,6 +9,8 @@ EXPOSE 9090
 EXPOSE 9091
 EXPOSE 9092
 
-COPY buildAgent.properties /TeamCity/buildAgent/conf/buildAgent.properties
+COPY buildAgent.properties .
 
-CMD sh /TeamCity/buildAgent/bin/agent.sh run
+COPY run_agent.sh .
+
+CMD sh run_agent.sh
