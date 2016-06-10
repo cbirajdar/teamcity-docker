@@ -5,9 +5,8 @@ MAINTAINER Chetan Birajdar
 #Download and extract teamcity binaries
 RUN curl https://download-cf.jetbrains.com/teamcity/TeamCity-9.1.7.tar.gz | tar -xz
 
+#Expose agent port to teamcity server
 EXPOSE 9090
-EXPOSE 9091
-EXPOSE 9092
 
 COPY buildAgent.properties .
 

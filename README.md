@@ -1,4 +1,4 @@
-# Docker configs for TeamCity master and agent
+# Docker setup for TeamCity master and agent
 
 Docker installation - https://docs.docker.com/engine/installation/
 
