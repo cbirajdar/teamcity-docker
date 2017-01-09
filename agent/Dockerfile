@@ -1,9 +1,9 @@
-FROM java:8
+FROM openjdk:8
 
 MAINTAINER Chetan Birajdar
 
 #Download and extract teamcity binaries
-RUN curl https://download-cf.jetbrains.com/teamcity/TeamCity-9.1.7.tar.gz | tar -xz
+RUN curl https://download-cf.jetbrains.com/teamcity/TeamCity-10.0.4.tar.gz | tar -xz
 
 #Expose agent port to teamcity server
 EXPOSE 9090
