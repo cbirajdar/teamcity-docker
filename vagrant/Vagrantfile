@@ -1,0 +1,32 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+VAGRANTFILE_API_VERSION = "2"
+
+require 'yaml'
+
+teamcity_nodes = YAML.load_file('teamcity.yaml')
+
+# Multi-machine setup based on: http://blog.scottlowe.org/2014/10/22/multi-machine-vagrant-with-yaml/
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+
+  teamcity_nodes.each do |nodes|
+
+    config.vm.define nodes["name"] do |node|
+
+      node.vm.box = "centos/7"
+      node.vm.hostname = nodes["name"]
+      node.vm.provision :shell, path: "set_up.sh"
+      node.vm.network :private_network, ip: nodes["ip"]
+
+      node.vm.provider :virtualbox do |vb|
+        vb.name = nodes["name"]
+      end
+
+    end
+
+  end
+
+  config.ssh.insert_key = false
+
+end

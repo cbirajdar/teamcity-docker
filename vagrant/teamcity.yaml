@@ -1,0 +1,8 @@
+- name: teamcity-master01.local
+  ip: 192.168.172.100
+- name: teamcity-agent01.local
+  ip: 192.168.172.101
+- name: teamcity-agent02.local
+  ip: 192.168.172.102
+- name: teamcity-agent03.local
+  ip: 192.168.172.103
